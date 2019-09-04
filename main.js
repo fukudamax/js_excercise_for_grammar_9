@@ -40,7 +40,7 @@ function each(array,callback){
 
 // ここでeach関数の挙動を確かめる
 each(alphabets,function(item,index){
-    console.log(index+"個目"+item);
+//     console.log(index+"個目"+item);	
 });
 
 
@@ -72,22 +72,25 @@ each(alphabets,function(item,index){
     */
     
     // ここでmap関数を実装する
-    function map(array,callback){
-        let newArray = [];
-        for(let i=0;i<array.length;i++){
-            newArray.push(callback(array[i] * 2,i));
-        }
-        return newArray;
-    }
+//     function map(array,callback){
+//         let newArray = [];
+//         for(let i=0;i<array.length;i++){
+//             newArray.push(callback(array[i] * 2,i));
+//         }
+//         return newArray;
+//     }
 
-    // ここでmap関数の挙動を確認する
-    const nums = [5,6,7,8,9];
-    map(nums,function(newArrayItem,index){
-        console.log(index+'ha'+newArrayItem)
-    })
-    
-    
-    /**
+//     // ここでmap関数の挙動を確認する
+//     const nums = [5,6,7,8,9];
+//     map(nums,function(newArrayItem,index){
+//         console.log(index+'ha'+newArrayItem)
+//     })
+		
+		
+		
+		
+
+/**
     * 課題3: 「Array.prototype.filter()」と同等の機能を持つ関数を作る
     *   - 「Array.prototype.filter()」のドキュメント
     *     - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
@@ -97,6 +100,7 @@ each(alphabets,function(item,index){
     *     - 第2引数: コールバック関数(引数名はcallbackとする)
     *       - コールバック関数の内容は、filter関数の第1引数で受け取った配列をイテレーションする機能を持つ
     *       - コールバックは次の2つの引数を持つ
+		
     *         - 第1引数: filter関数の第1引数で受け取った配列の各要素を1ループごとにセットする
     *         - 第2引数: コールバック関数の第1引数で受け取った要素に対応するインデックス番号をセットする
     *       - コールバック関数は戻り値を持つ
@@ -117,8 +121,22 @@ each(alphabets,function(item,index){
         */
         
         // ここでfilter関数を作る
-        
+
+				function filter(data,callback){
+					var resultArray = [];
+					each(data,function(item,index){
+						if (item % 2 === 0){
+							resultArray.push(item)
+						}  
+					})
+					callback(resultArray)	
+				}
+
         
         // ここでfilter関数の挙動を確認する
-        
+				const input=['8','6','10','11']
+				filter(input,function(resultArray){
+					console.log(resultArray)
+				})        
+
         
